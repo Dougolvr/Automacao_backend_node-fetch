@@ -6,7 +6,7 @@ let deleteURL;
 let responseDelete; // nao sei se esse nome é ideal para a ação
 
 Given('que o usuario queira deletar um funcionario', async() => {
-    deleteURL = 'https://dummy.restapiexample.com/api/v1/delete/7';
+    deleteURL = 'https://dummy.restapiexample.com/api/v1/delete/19';
     
 });
 
@@ -23,15 +23,15 @@ const responseBody = await response.json();
 
 responseDelete = {
     status: response.status,
-    message: responseBody.message,
-    data: response.data,
+    message: responseBody.message, // resposta em json
+    data: responseBody.data, // resposta em json
 };
 
-console.log('🗑️ Resposta do DELETE:', responseDelete);
+console.log('🗑️  Resposta do DELETE:', responseDelete);
 });
 
 Then('esse funcionario sera deletado do sistema', async() =>{
     assert.strictEqual(responseDelete.status, 200);
     assert.strictEqual(responseDelete.message.toLowerCase(), 'successfully! record has been deleted');
-    assert.strictEqual(responseDelete.data, '7'); // verificação confirma que o funcionário com ID 7 foi o que foi deletado 
+    assert.strictEqual(responseDelete.data, '19'); // verificação confirma que o funcionário com ID 7 foi o que foi deletado 
 });
