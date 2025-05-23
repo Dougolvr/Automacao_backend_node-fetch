@@ -16,3 +16,15 @@ Cenario: Cadastrar funcionario
     Dado que o usuario cadastre um novo funcionario
     Quando ele enviar as informacoes do funcionario
     Entao esse funcionario sera cadastrado
+
+@cenarioPut
+Cenario: Alterar informacoes cadastrais
+    Dado que o usuario altere uma informacao de funcionario
+    Quando ele enviar as novas infomracoes
+    Entao as informacoes serao alteradas
+
+@cenarioDelete
+Cenario: Deletar cadastro de funcionario
+    Dado que o usuario queira deletar um funcionario
+    Quando ele enviar a indentificacao unica
+    Entao esse funcionario sera deletado do sistema
