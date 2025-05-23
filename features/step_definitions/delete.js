@@ -4,9 +4,11 @@ const fetch = require('node-fetch');
 
 let deleteURL;
 let responseDelete; // nao sei se esse nome é ideal para a ação
+let id;
 
 Given('que o usuario queira deletar um funcionario', async() => {
-    deleteURL = 'https://dummy.restapiexample.com/api/v1/delete/19';
+    id = 3;
+    deleteURL = `https://dummy.restapiexample.com/api/v1/delete/${id}`;
     
 });
 
@@ -33,5 +35,5 @@ console.log('🗑️  Resposta do DELETE:', responseDelete);
 Then('esse funcionario sera deletado do sistema', async() =>{
     assert.strictEqual(responseDelete.status, 200);
     assert.strictEqual(responseDelete.message.toLowerCase(), 'successfully! record has been deleted');
-    assert.strictEqual(responseDelete.data, '19'); // verificação confirma que o funcionário com ID 7 foi o que foi deletado 
+    assert.strictEqual(responseDelete.data, `${id}`); // verificação confirma que o funcionário com ID 7 foi o que foi deletado 
 });

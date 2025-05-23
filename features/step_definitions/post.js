@@ -1,6 +1,7 @@
 const{ Given, When, Then } = require('@cucumber/cucumber');
 const assert = require('assert');
 const fetch = require('node-fetch');
+const { gerarDadosFunc } = require('../dados(data)/fakeData');
 
 let postUrl;
 let responseCadastro; // Representa a resposta da requisição de cadastro
@@ -9,13 +10,7 @@ let dadosFunc; 	// Representa os dados do funcionário enviados no corpo do POST
 Given('que o usuario cadastre um novo funcionario', async() =>{
     postUrl = 'https://dummy.restapiexample.com/api/v1/create';
 
-    dadosFunc = {
-        "id": 24,
-        "employee_name": 'Douglas tester',
-        "employee_salary": 85600,
-        "employee_age": 26,
-        "profile_image": ''
-    };
+    dadosFunc = gerarDadosFunc();
 });
 
 When('ele enviar as informacoes do funcionario', async() => {

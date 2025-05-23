@@ -3,6 +3,7 @@
     "@cucumber/cucumber": "^11.3.0"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.8.0",
     "node-fetch": "^2.7.0"
   }
 }
